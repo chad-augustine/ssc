@@ -43,6 +43,7 @@ void pvsamv_nofinancial_default(ssc_data_t &data)
 	ssc_data_set_number(data, "strings_in_parallel", 2);
 	ssc_data_set_number(data, "inverter_count", 1);
 	ssc_data_set_number(data, "enable_mismatch_vmax_calc", 0);
+	ssc_data_set_number(data, "subarray1_nstrings", 2);
 	ssc_data_set_number(data, "subarray1_tilt", 20);
 	ssc_data_set_number(data, "subarray1_tilt_eq_lat", 0);
 	ssc_data_set_number(data, "subarray1_azimuth", 180);
@@ -76,6 +77,7 @@ void pvsamv_nofinancial_default(ssc_data_t &data)
 	ssc_data_set_number(data, "subarray4_nameplate_loss", 0);
 	ssc_data_set_number(data, "dcoptimizer_loss", 0);
 	ssc_data_set_number(data, "acwiring_loss", 1);
+	ssc_data_set_number(data, "transmission_loss", 0);
 	ssc_data_set_number(data, "subarray1_mod_orient", 0);
 	ssc_data_set_number(data, "subarray1_nmodx", 7);
 	ssc_data_set_number(data, "subarray1_nmody", 2);
@@ -153,6 +155,10 @@ void pvsamv_nofinancial_default(ssc_data_t &data)
 	ssc_data_set_number(data, "spe_fd", 1);
 	ssc_data_set_number(data, "spe_vmp", 30);
 	ssc_data_set_number(data, "spe_voc", 36);
+	ssc_data_set_number(data, "cec_is_bifacial", 0);
+	ssc_data_set_number(data, "cec_bifacial_transmission_factor", 0);
+	ssc_data_set_number(data, "cec_bifaciality", 0);
+	ssc_data_set_number(data, "cec_bifacial_ground_clearance_height", 0);
 	ssc_data_set_number(data, "cec_area", 1.6310000419616699);
 	ssc_data_set_number(data, "cec_a_ref", 2.4200999736785889);
 	ssc_data_set_number(data, "cec_adjust", 5.0100002288818359);
@@ -182,6 +188,10 @@ void pvsamv_nofinancial_default(ssc_data_t &data)
 	ssc_data_set_number(data, "cec_array_cols", 10);
 	ssc_data_set_number(data, "cec_backside_temp", 20);
 	ssc_data_set_number(data, "6par_celltech", 1);
+	ssc_data_set_number(data, "6par_is_bifacial", 0);
+	ssc_data_set_number(data, "6par_bifacial_transmission_factor", 0);
+	ssc_data_set_number(data, "6par_bifaciality", 0);
+	ssc_data_set_number(data, "6par_bifacial_ground_clearance_height", 0);
 	ssc_data_set_number(data, "6par_vmp", 30);
 	ssc_data_set_number(data, "6par_imp", 6);
 	ssc_data_set_number(data, "6par_voc", 37);
@@ -263,6 +273,9 @@ void pvsamv_nofinancial_default(ssc_data_t &data)
 	ssc_data_set_number(data, "sd11par_c2", 474.6400146484375);
 	ssc_data_set_number(data, "sd11par_c3", 1.4874600172042847);
 	ssc_data_set_number(data, "inverter_model", 0);
+	ssc_data_set_number(data, "inv_tdc_V1", 1);
+	ssc_data_set_number(data, "inv_tdc_T1", 52.8);
+	ssc_data_set_number(data, "inv_tdc_S1", -0.021);
 	ssc_data_set_number(data, "mppt_low_inverter", 250);
 	ssc_data_set_number(data, "mppt_hi_inverter", 480);
 	ssc_data_set_number(data, "inv_snl_c0", -3.1800000215298496e-06);
@@ -305,6 +318,10 @@ void pvsamv_nofinancial_default(ssc_data_t &data)
 	ssc_data_set_number(data, "inv_snl_eff_cec", 96.636932373046875);
 	ssc_data_set_number(data, "inv_pd_eff", 95);
 	ssc_data_set_number(data, "inv_cec_cg_eff_cec", 96.636306762695313);
+	ssc_data_set_number(data, "en_inv_tdc", 1);
+	ssc_data_set_number(data, "inv_tdc_V1", 1);
+	ssc_data_set_number(data, "inv_tdc_T1", 52.8);
+	ssc_data_set_number(data, "inv_tdc_S1", -0.021);
 }
 
 
@@ -369,6 +386,7 @@ void pvsamv1_with_residential_default(ssc_data_t &data)
 	ssc_data_set_number(data, "strings_in_parallel", 2);
 	ssc_data_set_number(data, "inverter_count", 1);
 	ssc_data_set_number(data, "enable_mismatch_vmax_calc", 0);
+	ssc_data_set_number(data, "subarray1_nstrings", 2);
 	ssc_data_set_number(data, "subarray1_tilt", 20);
 	ssc_data_set_number(data, "subarray1_tilt_eq_lat", 0);
 	ssc_data_set_number(data, "subarray1_azimuth", 180);
@@ -402,6 +420,7 @@ void pvsamv1_with_residential_default(ssc_data_t &data)
 	ssc_data_set_number(data, "subarray4_nameplate_loss", 0);
 	ssc_data_set_number(data, "dcoptimizer_loss", 0);
 	ssc_data_set_number(data, "acwiring_loss", 1);
+	ssc_data_set_number(data, "transmission_loss", 0);
 	ssc_data_set_number(data, "subarray1_mod_orient", 0);
 	ssc_data_set_number(data, "subarray1_nmodx", 7);
 	ssc_data_set_number(data, "subarray1_nmody", 2);
@@ -479,6 +498,10 @@ void pvsamv1_with_residential_default(ssc_data_t &data)
 	ssc_data_set_number(data, "spe_fd", 1);
 	ssc_data_set_number(data, "spe_vmp", 30);
 	ssc_data_set_number(data, "spe_voc", 36);
+	ssc_data_set_number(data, "cec_is_bifacial", 0);
+	ssc_data_set_number(data, "cec_bifacial_transmission_factor", 0);
+	ssc_data_set_number(data, "cec_bifaciality", 0);
+	ssc_data_set_number(data, "cec_bifacial_ground_clearance_height", 0);
 	ssc_data_set_number(data, "cec_area", 1.6310000419616699);
 	ssc_data_set_number(data, "cec_a_ref", 2.4200999736785889);
 	ssc_data_set_number(data, "cec_adjust", 5.0100002288818359);
@@ -507,6 +530,10 @@ void pvsamv1_with_residential_default(ssc_data_t &data)
 	ssc_data_set_number(data, "cec_array_rows", 1);
 	ssc_data_set_number(data, "cec_array_cols", 10);
 	ssc_data_set_number(data, "cec_backside_temp", 20);
+	ssc_data_set_number(data, "6par_is_bifacial", 0);
+	ssc_data_set_number(data, "6par_bifacial_transmission_factor", 0);
+	ssc_data_set_number(data, "6par_bifaciality", 0);
+	ssc_data_set_number(data, "6par_bifacial_ground_clearance_height", 0);
 	ssc_data_set_number(data, "6par_celltech", 1);
 	ssc_data_set_number(data, "6par_vmp", 30);
 	ssc_data_set_number(data, "6par_imp", 6);
@@ -626,6 +653,10 @@ void pvsamv1_with_residential_default(ssc_data_t &data)
 	ssc_data_set_number(data, "inv_pd_pnt", 0);
 	ssc_data_set_number(data, "inv_pd_vdco", 310);
 	ssc_data_set_number(data, "inv_pd_vdcmax", 600);
+	ssc_data_set_number(data, "en_inv_tdc", 1);
+	ssc_data_set_number(data, "inv_tdc_V1", 1);
+	ssc_data_set_number(data, "inv_tdc_T1", 52.8);
+	ssc_data_set_number(data, "inv_tdc_S1", -0.021);
 	ssc_data_set_number(data, "en_batt", 0);
 	ssc_data_set_number(data, "batt_replacement_option", 0);
 	ssc_number_t p_batt_replacement_schedule[1] = { 0 };

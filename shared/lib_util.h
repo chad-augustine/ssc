@@ -79,15 +79,33 @@ Define _DEBUG if compile with debugging
 
 #define RCINDEX(arr, ncols, r, c) arr[ncols*r+c]
 
-
 #ifndef M_PI
 #define M_PI 3.14159265358979323846264338327
 #endif
-#define sind(x) sin( (M_PI/180.0)*(x) )
-#define cosd(x) cos( (M_PI/180.0)*(x) )
+
+#ifndef DTOR
+#define DTOR 0.017453292519943295769236907684886
+#endif
+
+#ifndef RTOD
+#define RTOD 57.295779513082320876798154814105
+#endif
+
+
+#define MAX(a,b) ( (a)>(b) ? (a) : (b) )
+#define MIN(a,b) ( (a)<(b) ? (a) : (b) )
+
+#define sind(x) sin( DTOR*(x) )
+#define cosd(x) cos( DTOR*(x) )
+#define tand(x) tan( DTOR*(x) )
+#define asind(x) (RTOD *asin(x))
+#define acosd(x) (RTOD *acos(x))
+#define atand(x) (RTOD*atan(x))
 
 namespace util
 {
+	const double percent_to_fraction = 0.01;
+	const double fraction_to_percent = 100;
 	const double watt_to_kilowatt = 1. / 1000;
 	const double kilowatt_to_watt = 1000;
 	const double hour_to_min = 60.;
@@ -443,7 +461,7 @@ namespace util
 		inline T &at(size_t i)
 		{
 	#ifdef _DEBUG
-			VEC_ASSERT( i >= 0 && i < n_cols );
+			VEC_ASSERT( i >= 0 && i < n_rows*n_cols );
 	#endif
 			return t_array[i];
 		}
@@ -451,7 +469,7 @@ namespace util
 		inline const T&at(size_t i) const
 		{
 	#ifdef _DEBUG
-			VEC_ASSERT( i >= 0 && i < n_cols );
+			VEC_ASSERT( i >= 0 && i < n_rows*n_cols );
 	#endif
 			return t_array[i];
 		}
@@ -491,7 +509,7 @@ namespace util
 		T operator[] (size_t i) const
 		{
 	#ifdef _DEBUG
-			VEC_ASSERT( i >= 0 && i < n_cols );
+			VEC_ASSERT( i >= 0 && i < n_rows*n_cols );
 	#endif
 			return t_array[i];
 		}
@@ -499,11 +517,33 @@ namespace util
 		T &operator[] (size_t i)
 		{
 	#ifdef _DEBUG
-			VEC_ASSERT( i >= 0 && i < n_cols );
+			VEC_ASSERT( i >= 0 && i < n_rows*n_cols );
 	#endif
 			return t_array[i];
 		}
-				
+		
+        matrix_t row(const size_t r) const
+        {
+    #ifdef _DEBUG
+            VEC_ASSERT(r >= 0 && r < n_rows);
+    #endif
+            matrix_t<T> array(n_cols);
+            for (size_t i = 0; i < n_cols; i++)
+                array[i] = t_array[i + r*n_cols];
+            return array;
+        }
+
+        matrix_t col(const size_t c) const
+        {
+    #ifdef _DEBUG
+            VEC_ASSERT(c >= 0 && c < n_cols);
+    #endif
+            matrix_t<T> array(n_rows);
+            for (size_t i = 0; i < n_rows; i++)
+                array[i] = t_array[i*n_cols + c];
+            return array;
+        }
+
 		inline size_t nrows() const
 		{
 			return n_rows;
